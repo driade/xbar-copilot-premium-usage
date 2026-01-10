@@ -14,7 +14,7 @@ import urllib.error
 
 API_URL = "https://api.github.com/copilot_internal/user"
 
-# Paste your GitHub token here if you insist on hardcoding it from https://github.com/settings/tokens > Generate new token (classic)
+# Paste your GitHub token here from https://github.com/settings/tokens > Generate new token (classic)
 # SECURITY: Do not commit this file with a real token.
 GITHUB_TOKEN_INLINE = ""
 
