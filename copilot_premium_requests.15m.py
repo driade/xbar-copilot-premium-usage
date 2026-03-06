@@ -6,22 +6,20 @@
 # <xbar.author.github>driade</xbar.author.github>
 # <xbar.desc>Shows GitHub Copilot premium interaction quota usage.</xbar.desc>
 # <xbar.dependencies>python3</xbar.dependencies>
+# <xbar.var>string(VAR_GITHUB_TOKEN=""): GitHub personal access token (classic)</xbar.var>
 # <xbar.abouturl>https://github.com/driade/xbar-copilot-premium-usage</xbar.abouturl>
 
 import json
+import os
 import urllib.request
 import urllib.error
 
 API_URL = "https://api.github.com/copilot_internal/user"
 
-# Paste your GitHub token here from https://github.com/settings/tokens > Generate new token (classic)
-# SECURITY: Do not commit this file with a real token.
-GITHUB_TOKEN_INLINE = ""
-
-
 def get_token():
-    if isinstance(GITHUB_TOKEN_INLINE, str) and GITHUB_TOKEN_INLINE.strip():
-        return GITHUB_TOKEN_INLINE.strip()
+    token = os.getenv("VAR_GITHUB_TOKEN", "").strip()
+    if token:
+        return token
     return None
 
 
@@ -60,7 +58,7 @@ def main():
     if not token:
         print("Copilot: ?")
         print("---")
-        print("Missing token. Set GITHUB_TOKEN_INLINE in the script.")
+        print("Missing token. Configure VAR_GITHUB_TOKEN in xbar plugin settings.")
         return 1
 
     try:

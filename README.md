@@ -26,12 +26,12 @@ xbar plugin to show your GitHub Copilot **premium interactions** quota usage in 
 
 ## Configure
 
-This plugin currently reads the token from the script constant `GITHUB_TOKEN_INLINE`.
+This plugin reads the token from the xbar variable `VAR_GITHUB_TOKEN`.
 
-1. Open `copilot_premium_requests.15m.py`.
-2. Set `GITHUB_TOKEN_INLINE` to your token value.
+1. In xbar, open plugin settings for `copilot_premium_requests.15m.py`.
+2. Set `VAR_GITHUB_TOKEN` to your token value.
 
-Security note: do not commit/publish the file with a real token.
+Security note: keep your token private and do not publish it.
 
 ## Output
 
@@ -41,7 +41,7 @@ Security note: do not commit/publish the file with a real token.
 
 ## Troubleshooting
 
-- **"Missing token"**: you have not set `GITHUB_TOKEN_INLINE`.
+- **"Missing token"**: you have not set `VAR_GITHUB_TOKEN` in xbar settings.
 - **HTTP Error: 401/403**: token is invalid, expired, or missing required access.
 - **Timeout / network errors**: try again later; GitHub API/network may be temporarily unavailable.
 
